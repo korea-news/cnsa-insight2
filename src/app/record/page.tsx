@@ -6,7 +6,7 @@ import { ArrowLeft, Sparkles, User, BookText, Loader2, Bot } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion';
 
 type LoadingPhase = 'idle' | 'anchor' | 'contemplate' | 'transcribe' | 'complete';
-type AIModel = 'gemini' | 'claude';
+type AIModel = 'gemini' | 'claude' | 'groq';
 
 export default function RecordPage() {
     const router = useRouter();
@@ -103,26 +103,39 @@ export default function RecordPage() {
                             <Bot className="w-5 h-5 text-emerald-600" />
                             AI 엔진 선택
                         </h2>
-                        <div className="flex gap-3">
+                        <div className="grid grid-cols-3 gap-3">
                             <button
                                 type="button"
                                 onClick={() => setAiModel('gemini')}
-                                className={`flex-1 py-3 px-4 rounded-xl border-2 font-medium transition-all ${aiModel === 'gemini'
-                                        ? 'border-blue-500 bg-blue-50 text-blue-700'
-                                        : 'border-gray-200 hover:border-gray-300 text-gray-600'
+                                className={`py-3 px-4 rounded-xl border-2 font-medium transition-all ${aiModel === 'gemini'
+                                    ? 'border-blue-500 bg-blue-50 text-blue-700'
+                                    : 'border-gray-200 hover:border-gray-300 text-gray-600'
                                     }`}
                             >
-                                🌟 Gemini 3.0 Flash
+                                <div className="text-lg">🌟 Gemini</div>
+                                <div className="text-xs opacity-70">gemini-2.5-flash</div>
                             </button>
                             <button
                                 type="button"
                                 onClick={() => setAiModel('claude')}
-                                className={`flex-1 py-3 px-4 rounded-xl border-2 font-medium transition-all ${aiModel === 'claude'
-                                        ? 'border-purple-500 bg-purple-50 text-purple-700'
-                                        : 'border-gray-200 hover:border-gray-300 text-gray-600'
+                                className={`py-3 px-4 rounded-xl border-2 font-medium transition-all ${aiModel === 'claude'
+                                    ? 'border-purple-500 bg-purple-50 text-purple-700'
+                                    : 'border-gray-200 hover:border-gray-300 text-gray-600'
                                     }`}
                             >
-                                🤖 Claude Sonnet 4.5
+                                <div className="text-lg">🤖 Claude</div>
+                                <div className="text-xs opacity-70">claude-3-5-sonnet</div>
+                            </button>
+                            <button
+                                type="button"
+                                onClick={() => setAiModel('groq')}
+                                className={`py-3 px-4 rounded-xl border-2 font-medium transition-all ${aiModel === 'groq'
+                                    ? 'border-orange-500 bg-orange-50 text-orange-700'
+                                    : 'border-gray-200 hover:border-gray-300 text-gray-600'
+                                    }`}
+                            >
+                                <div className="text-lg">⚡ Groq</div>
+                                <div className="text-xs opacity-70">llama-3.3-70b</div>
                             </button>
                         </div>
                     </div>
