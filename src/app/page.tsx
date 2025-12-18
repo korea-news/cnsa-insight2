@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { Plus, FileText, Sparkles, Clock, Settings, LogOut } from 'lucide-react';
+import { Plus, FileText, Sparkles, Clock, Settings, LogOut, FileSpreadsheet } from 'lucide-react';
 
 export default function DashboardPage() {
   const router = useRouter();
@@ -61,10 +61,11 @@ export default function DashboardPage() {
       </section>
 
       {/* Quick Actions */}
-      <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
-        <ActionCard title="새 생기부 작성" desc="인사이트 템플릿을 활용하여 관찰 내용을 바탕으로 새로운 기록을 생성합니다." icon={<Plus className="w-6 h-6" />} color="blue" onClick={() => router.push('/record')} btnText="작성 시작하기" />
-        <ActionCard title="나만의 템플릿" desc="자주 쓰는 표현과 평가 기준을 템플릿으로 만들어 효율적으로 관리하세요." icon={<FileText className="w-6 h-6" />} color="purple" onClick={() => router.push('/template')} btnText="템플릿 관리" />
-        <ActionCard title="최근 기록" desc="최근에 작업한 학생들이 표시됩니다. (현재 로컬 저장소 비어있음)" icon={<Clock className="w-6 h-6" />} color="emerald" onClick={() => { }} btnText="기록 더보기" />
+      <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+        <ActionCard title="새 생기부 작성" desc="관찰 내용을 바탕으로 새로운 기록을 생성합니다." icon={<Plus className="w-6 h-6" />} color="blue" onClick={() => router.push('/record')} btnText="작성 시작하기" />
+        <ActionCard title="엑셀 일괄 생성" desc="학생부 엑셀을 업로드하여 일괄 생성합니다." icon={<FileSpreadsheet className="w-6 h-6" />} color="emerald" onClick={() => router.push('/batch')} btnText="엑셀 업로드" />
+        <ActionCard title="나만의 템플릿" desc="자주 쓰는 표현을 템플릿으로 관리하세요." icon={<FileText className="w-6 h-6" />} color="purple" onClick={() => router.push('/template')} btnText="템플릿 관리" />
+        <ActionCard title="최근 기록" desc="최근 작업한 학생들이 표시됩니다." icon={<Clock className="w-6 h-6" />} color="gray" onClick={() => { }} btnText="기록 더보기" />
       </section>
 
       {/* Tips */}
