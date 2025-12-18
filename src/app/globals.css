@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+:root {
+  --primary-hue: 220;
+  --primary-sat: 90%;
+  --primary-lit: 55%;
+  --color-primary: hsl(var(--primary-hue), var(--primary-sat), var(--primary-lit));
+  --color-primary-dark: hsl(var(--primary-hue), var(--primary-sat), 40%);
+  --color-primary-light: hsl(var(--primary-hue), var(--primary-sat), 95%);
+  --accent-hue: 260;
+  --color-accent: hsl(var(--accent-hue), 80%, 60%);
+  --color-text-main: hsl(220, 40%, 20%);
+  --color-text-sub: hsl(220, 20%, 50%);
+  --glass-surface: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.5);
+  --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+  --glass-blur: 12px;
+  --radius-lg: 24px;
+  --radius-md: 16px;
+  --radius-sm: 8px;
+}
+
+body {
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+  color: var(--color-text-main);
+  background: linear-gradient(135deg, hsl(220, 50%, 98%) 0%, hsl(220, 30%, 94%) 100%);
+  min-height: 100vh;
+}
+
+.glass-panel {
+  background: var(--glass-surface);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  border-radius: var(--radius-lg);
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+}
